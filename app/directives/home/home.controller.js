@@ -1,12 +1,12 @@
-(function(){
+(function () {
     'use strict';
 
-    app.module('app.directives')
-       .controller('HomeController', HomeController);
+    angular.module('app.directives')
+        .controller('HomeController', HomeController);
 
     HomeController.$inject = [];
 
-    function HomeController(){
+    function HomeController() {
         var vm = this;
 
 

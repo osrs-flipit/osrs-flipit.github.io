@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    app.module('app.directives')
+    angular.module('app.directives')
         .directive('flipitHome', HomeDirective);
 
     HomeDirective.$inject = [];

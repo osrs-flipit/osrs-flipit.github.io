@@ -1,2 +1,2 @@
-# -osrs-flipit.github.io
+# osrs-flipit.github.io
 2007 runescape grand exchange tool
