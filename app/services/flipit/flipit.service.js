@@ -36,20 +36,20 @@
                         switch (membersFlag) {
                             case 1:
                                 {
-                                    addTrendingItem(response.data.item);
+                                    addTrendingItem(angular.fromJson(response.data.item));
                                     break;
                                 }
                             case 2:
                                 {
                                     if (data.item.members === "true") {
-                                        addTrendingItem(response.data.item);
+                                        addTrendingItem(angular.fromJson(response.data.item));
                                         break;
                                     }
                                 }
                             case 3:
                                 {
                                     if (data.item.members === "false") {
-                                        addTrendingItem(response.data.item);
+                                        addTrendingItem(angular.fromJson(response.data.item));
                                         break;
                                     }
                                 }
