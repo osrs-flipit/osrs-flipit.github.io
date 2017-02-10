@@ -9,8 +9,6 @@
     function HomeDirective() {
         var directive = {
             restrict: 'E',
-            controller: 'HomeContoller',
-            controllerAs: 'home',
             templateUrl: '/app/directives/home/home.template.html'
         };
 
