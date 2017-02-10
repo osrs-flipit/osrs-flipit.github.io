@@ -4,7 +4,7 @@
     angular.module('app.directives')
         .directive('flipitHome', HomeDirective);
 
-    HomeDirective.$inject = [];
+    //HomeDirective.$inject = [];
 
     function HomeDirective() {
         var directive = {
