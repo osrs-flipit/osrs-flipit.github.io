@@ -9,7 +9,7 @@
     function FlipIt($http, $log, Items) {
         var vm = this;
 
-        vm.osrsServiceEndpoint = 'http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item=';
+        vm.osrsServiceEndpoint = 'https://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item=';
         vm.trendingItems = [];
         vm.trendingItemsSize = 100;
         vm.db = [];
