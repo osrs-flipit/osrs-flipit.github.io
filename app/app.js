@@ -1,5 +1,5 @@
-(function(){
+(function () {
     'use strict';
 
-    angular.module('app', ['ngRoute', 'app.directives']);
+    angular.module('app', ['app.directives']);
 })();

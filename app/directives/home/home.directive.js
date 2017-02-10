@@ -11,7 +11,7 @@
             restrict: 'E',
             controller: 'HomeContoller',
             controllerAs: 'home',
-            templateUrl: 'home.template.html'
+            templateUrl: '/home.template.html'
         };
 
         return directive;
