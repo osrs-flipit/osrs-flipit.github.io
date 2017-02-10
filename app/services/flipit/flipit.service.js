@@ -19,9 +19,9 @@
 
         function loadDB() {
             $http.get('./app/db.json')
-                .then(function (data) {
-                    vm.db = data;
-                    vm.dbSize = data.length;
+                .then(function (response) {
+                    vm.db = response.data;
+                    vm.dbSize = response.data.length;
                 }, function (error) {
                     $log.error(error);
                 });
@@ -30,24 +30,24 @@
         function loadTrendingItems(membersFlag) {
             for (var i = 0; i < dbSize; i++) {
                 $http.get(vm.osrsServiceEndpoint + vm.db[i].id)
-                    .then(function (data) {
+                    .then(function (response) {
                         switch (membersFlag) {
                             case 1:
                                 {
-                                    addTrendingItem(data.item);
+                                    addTrendingItem(response.data.item);
                                     break;
                                 }
                             case 2:
                                 {
                                     if (data.item.members === "true") {
-                                        addTrendingItem(data.item);
+                                        addTrendingItem(response.data.item);
                                         break;
                                     }
                                 }
                             case 3:
                                 {
                                     if (data.item.members === "false") {
-                                        addTrendingItem(data.item);
+                                        addTrendingItem(response.data.item);
                                         break;
                                     }
                                 }
