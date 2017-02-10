@@ -1,1 +1,18 @@
-HI
+<div>
+    <table>
+        <th>
+            Item Name
+        </th>
+        <th>
+            Current Price
+        </th>
+        <th>
+            Trend
+        </th>
+        <tr ng-repeat="item in home.trendingItems">
+            <td>{{item.name}}</td>
+            <td>{{item.current.price}}</td>
+            <td>{{item.day30.change}}</td>
+        </tr>
+    </table>
+</div>

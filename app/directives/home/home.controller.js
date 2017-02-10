@@ -4,11 +4,17 @@
     angular.module('app.directives')
         .controller('HomeController', HomeController);
 
-    //HomeController.$inject = [];
+    HomeController.$inject = ['FlipIt'];
 
-    function HomeController() {
+    function HomeController(FlipIt) {
         var vm = this;
 
+        vm.trendingItems = [];
 
+        activate();
+
+        function activate() {
+            vm.trendingItems = FlipIt.getTrendingItems(1);
+        }
     }
 })();
