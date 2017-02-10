@@ -19,11 +19,10 @@
 
         function loadDB() {
             $http.get('./app/db.json')
-                .success(function (data) {
+                .then(function (data) {
                     vm.db = data;
                     vm.dbSize = data.length;
-                })
-                .error(function (error) {
+                }, function (error) {
                     $log.error(error);
                 });
         }
@@ -31,7 +30,7 @@
         function loadTrendingItems(membersFlag) {
             for (var i = 0; i < dbSize; i++) {
                 $http.get(vm.osrsServiceEndpoint + vm.db[i].id)
-                    .success(function (data) {
+                    .then(function (data) {
                         switch (membersFlag) {
                             case 1:
                                 {
@@ -53,7 +52,7 @@
                                     }
                                 }
                         }
-                    }).error(function (error) {
+                    }, function (error) {
                         $log.error(error);
                     });
             }
