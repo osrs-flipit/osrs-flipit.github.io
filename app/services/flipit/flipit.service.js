@@ -15,8 +15,6 @@
         vm.db = [];
         vm.dbSize = 0;
 
-        loadDB();
-
         function loadDB() {
             $http.get('./app/db.json')
                 .then(function (response) {
@@ -28,6 +26,7 @@
         }
 
         function loadTrendingItems(membersFlag) {
+            loadDB();
             for (var i = 0; i < vm.dbSize; i++) {
                 $http.get(vm.osrsServiceEndpoint + vm.db[i].id)
                     .then(function (response) {
