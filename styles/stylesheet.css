@@ -11,3 +11,15 @@
     width: 15%;
     margin-left: 77.5%;
 }
+
+.excellent {
+    background-color: #234d20;
+}
+
+.great {
+    background-color: #77ab59;
+}
+
+.good {
+    background-color: #f0f7da;
+}

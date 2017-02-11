@@ -11,15 +11,17 @@
             <th>Revenue</th>
             <th>Surplus Demand</th>
             <th>Demand Percentage</th>
-            <tr ng-repeat="item in home.allItems| filter: searchText | orderBy: ['-revenue', '-demandQuantity']" ng-hide="item.revenue == 'Insufficient data' || item.demandQuantity == 'Insufficient data'">
+            <tr ng-repeat="item in home.allItems| filter: searchText | orderBy: ['-revenue', '-demandQuantity']" ng-hide="item.revenue == 'Insufficient data' || item.demandQuantity == 'Insufficient data'"
+                ng-class="highlight(item.ratio)">
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.buyPrice}} G</td>
                 <td>{{item.sellPrice}} G</td>
                 <td>{{item.revenue}} G</td>
+                <td>{{item.ratio | number: 2}}</td>
                 <td>{{item.demandQuantity}} Units</td>
                 <td>{{item.demandPercentage | number: 2}} %</td>
-            </tr>
+                </tr>
         </table>
     </div>
 </div>

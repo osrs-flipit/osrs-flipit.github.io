@@ -64,6 +64,7 @@
                 buyPrice: data.buying,
                 sellPrice: data.selling,
                 revenue: (data.selling == 0 || data.buying == 0) ? "Insufficient data" : data.selling - data.buying,
+                ratio: (data.selling == 0 || data.buying == 0) ? "Insufficient data" : (data.selling / (data.selling - data.buying)),
                 demandQuantity: (data.buyingQuantity == 0 || data.sellingQuantity == 0) ? "Insufficient data" : data.buyingQuantity - data.sellingQuantity,
                 demandPercentage: (data.buyingQuantity == 0 || data.sellingQuantity == 0) ? 0 : ((data.buyingQuantity / data.sellingQuantity) - 1) * 100
             }
