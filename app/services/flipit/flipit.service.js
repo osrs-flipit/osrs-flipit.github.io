@@ -91,7 +91,7 @@
 
         function activate() {
             var loadPromise = loadDB().then(function (response) {
-                loadTrendingItems(membersFlag);
+                loadTrendingItems();
             });
         }
 
