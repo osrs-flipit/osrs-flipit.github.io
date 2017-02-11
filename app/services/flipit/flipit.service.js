@@ -31,8 +31,8 @@
             var loadPromise = $http.get('./app/db.json')
                 .then(function (response) {
                     for (var obj in response.data) {
-                        var key = obj.id + '';
-                        vm.db[key] = obj.name;
+                        var key = response.data[obj].id + '';
+                        vm.db[key] = response.data[obj].name;
                     }
                     vm.dbSize = response.data.length;
                 }, function (error) {
