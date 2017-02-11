@@ -108,8 +108,9 @@
             return vm.trendingItems;
         }
 
-        function getAllItems() {
+        function getAllItems(callback) {
             activate();
+            callback();
             return vm.marketDB;
         }
 
