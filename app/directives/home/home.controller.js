@@ -14,6 +14,11 @@
         vm.pageSize = 10;
         vm.currentPage = 1;
 
+        // UI related
+        vm.sortColumn = '';
+        vm.sort = sort;
+        vm.reverse = true;
+
         activate();
 
         function activate() {
@@ -26,6 +31,12 @@
             if (vm.allItems.length > vm.pageSize) {
                 vm.pageItems = vm.allItems.slice(min, max);
             }
+        }
+
+        function sort(sortColunm) {
+            vm.sortColumn = sortColumn;
+            vm.reverse = !vm.reverse;
+
         }
     }
 })();
