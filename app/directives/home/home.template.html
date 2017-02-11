@@ -1,5 +1,6 @@
 <div ng-controller="HomeController as home" class="table-responsive">
     <table class="table table-bordered">
+        <th>Id</th>
         <th>Item Name</th>
         <th>Buying Price</th>
         <th>Selling Price</th>
@@ -7,12 +8,13 @@
         <th>Demand Quanity</th>
         <th>Demand Percentage</th>
         <tr ng-repeat="item in home.allItems">
+            <td>{{item.id}}</td>
             <td>{{item.name}}</td>
-            <td>{{item.buyPrice}}</td>
-            <td>{{item.sellPrice}}</td>
-            <td>{{item.revenue}}</td>
+            <td>{{item.buyPrice}} G</td>
+            <td>{{item.sellPrice}} G</td>
+            <td>{{item.revenue}} G</td>
             <td>{{item.demandQuantity}}</td>
-            <td>{{item.demandPercentage | number: 2}}</td>
+            <td>{{item.demandPercentage | number: 2}} %</td>
         </tr>
     </table>
 </div>
