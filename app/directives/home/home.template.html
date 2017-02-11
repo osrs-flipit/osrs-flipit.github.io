@@ -1,18 +1,18 @@
 <div ng-controller="HomeController as home">
     <table>
-        <th>
-            Item Name
-        </th>
-        <th>
-            Current Price
-        </th>
-        <th>
-            Trend
-        </th>
+        <th>Item Name</th>
+        <th>Buying Price</th>
+        <th>Selling Price</th>
+        <th>Revenue</th>
+        <th>Demand Quanity</th>
+        <th>Demand Percentage</th>
         <tr ng-repeat="item in home.trendingItems">
             <td>{{item.name}}</td>
-            <td>{{item.current.price}}</td>
-            <td>{{item.day30.change}}</td>
+            <td>{{item.buyingPrice}}</td>
+            <td>{{item.sellingPrice}}</td>
+            <td>{{item.revenue}}</td>
+            <td>{{item.demandQuantity}}</td>
+            <td>{{item.demandPercentage}}</td>
         </tr>
     </table>
 </div>

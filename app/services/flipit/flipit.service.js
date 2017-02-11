@@ -40,10 +40,11 @@
 
         function loadTrendingItems() {
             for (var i = 0; i < vm.dbSize; i++) {
-                var itemName = vm.db[i].name,
-                    itemID = vm.db[i].id;
+                var itemID = vm.db[i].id;
                 $http.get(vm.osrsServiceEndpoint + itemID)
                     .then(function (response) {
+                        var regex = /(\d+)(?!.*\d)/;
+                        var itemName = vm.db[regex.exec(response.config.url)].name;
                         addItem(itemName, response.data);
                         //addTrendingItem(vm.db[i].name, response.data);
                     }, function (error) {
@@ -52,7 +53,7 @@
             }
         }
 
-        function addItem(itemName, data) {
+        function addItem(data) {
             var item = {
                 name: itemName,
                 buyPrice: data.buying,
