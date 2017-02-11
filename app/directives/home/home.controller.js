@@ -18,6 +18,7 @@
 
         function activate() {
             vm.allItems = FlipIt.getAllItems();
+            setPage();
         }
 
         function setPage() {
