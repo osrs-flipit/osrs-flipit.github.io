@@ -30,7 +30,7 @@
         function loadDB() {
             var loadPromise = $http.get('./app/db.json')
                 .then(function (response) {
-                    vm.db = response.data;
+                    vm.db[(response.data.id + '')] = response.data.name;
                     vm.dbSize = response.data.length;
                 }, function (error) {
                     $log.error(error);
@@ -44,8 +44,8 @@
                 $http.get(vm.osrsServiceEndpoint + itemID)
                     .then(function (response) {
                         var startIndex = response.config.url.lastIndexOf('=') + 1;
-                        var index = parseInt(response.config.url.substring(startIndex, response.config.url.length));
-                        var itemName = vm.db[index].name;
+                        var index = response.config.url.substring(startIndex, response.config.url.length);
+                        var itemName = vm.db[index];
                         addItem(index, itemName, response.data);
                         //addTrendingItem(vm.db[i].name, response.data);
                     }, function (error) {
