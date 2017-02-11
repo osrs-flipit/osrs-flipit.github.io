@@ -45,7 +45,7 @@
                     .then(function (response) {
                         var startIndex = response.config.url.lastIndexOf('=') + 1;
                         var index = parseInt(response.config.url.substring(startIndex, response.config.url.length));
-                        var itemName = vm.db[index] ? vm.db[index].name : '';
+                        var itemName = vm.db[index].name;
                         addItem(index, itemName, response.data);
                         //addTrendingItem(vm.db[i].name, response.data);
                     }, function (error) {
