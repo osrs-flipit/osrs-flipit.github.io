@@ -44,7 +44,7 @@
                 $http.get(vm.osrsServiceEndpoint + itemID)
                     .then(function (response) {
                         var regex = /(\d+)(?!.*\d)/;
-                        var itemName = vm.db[regex.exec(response.config.url)].name;
+                        var itemName = vm.db[regex.exec(response.config.url)[0]].name;
                         addItem(itemName, response.data);
                         //addTrendingItem(vm.db[i].name, response.data);
                     }, function (error) {
