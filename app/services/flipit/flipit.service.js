@@ -53,7 +53,7 @@
             }
         }
 
-        function addItem(data) {
+        function addItem(itemName, data) {
             var item = {
                 name: itemName,
                 buyPrice: data.buying,
