@@ -40,9 +40,11 @@
 
         function loadTrendingItems() {
             for (var i = 0; i < vm.dbSize; i++) {
-                $http.get(vm.osrsServiceEndpoint + vm.db[i].id)
+                var itemName = vm.db[i].name,
+                    itemID = vm.db[i].id;
+                $http.get(vm.osrsServiceEndpoint + itemID)
                     .then(function (response) {
-                        addItem(vm.db[i].name, response.data);
+                        addItem(itemName, response.data);
                         //addTrendingItem(vm.db[i].name, response.data);
                     }, function (error) {
                         $log.error(error);
