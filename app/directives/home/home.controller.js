@@ -9,12 +9,12 @@
     function HomeController(FlipIt) {
         var vm = this;
 
-        vm.trendingItems = [];
+        vm.allItems = [];
 
         activate();
 
         function activate() {
-            vm.trendingItems = FlipIt.getTrendingItems(1);
+            vm.trendingItems = FlipIt.getAllItems();
         }
     }
 })();

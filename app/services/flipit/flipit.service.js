@@ -9,9 +9,21 @@
     function FlipIt($http, $log, Items) {
         var vm = this;
 
-        vm.osrsServiceEndpoint = 'https://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item=';
+        // All items
+        vm.osrsServiceItems = 'https://rsbuddy.com/exchange/summary.json';
+        // All items with store prices.
+        vm.osrsServiceStorePrices = 'https://rsbuddy.com/exchange/names.json';
+        //  Hourly Pricepoint
+        vm.osrsServiceEndpoint = 'https://api.rsbuddy.com/grandExchange?a=guidePrice&i=';
+        // Plot points for recent trades based on timespan. Replace timespan with a value in vm.osrsTradeSpan
+        vm.osrsServiceGraph = 'https://api.rsbuddy.com/grandExchange?a=graph&start=1425921352106&g=timespan&i=';
+        /* Trades within a certain span of time
+         * 180 - 3hrs, 1440 - 1day, 4320 - 3days        
+         */
+        vm.osrsTradeSpan = [4320, 1440, 180];
         vm.trendingItems = [];
         vm.trendingItemsSize = 100;
+        vm.marketDB = [];
         vm.db = [];
         vm.dbSize = 0;
 
@@ -23,46 +35,37 @@
                 }, function (error) {
                     $log.error(error);
                 });
-            return loadPromise
+            return loadPromise;
         }
 
-        function loadTrendingItems(membersFlag) {
+        function loadTrendingItems() {
             for (var i = 0; i < vm.dbSize; i++) {
-                $http({
-                        method: 'JSONP',
-                        url: vm.osrsServiceEndpoint + vm.db[i].id
-                    })
+                $http.get(vm.osrsServiceEndpoint + vm.db[i].id)
                     .then(function (response) {
-                        switch (membersFlag) {
-                            case 1:
-                                {
-                                    addTrendingItem(angular.fromJson(response.data.item));
-                                    break;
-                                }
-                            case 2:
-                                {
-                                    if (data.item.members === "true") {
-                                        addTrendingItem(angular.fromJson(response.data.item));
-                                        break;
-                                    }
-                                }
-                            case 3:
-                                {
-                                    if (data.item.members === "false") {
-                                        addTrendingItem(angular.fromJson(response.data.item));
-                                        break;
-                                    }
-                                }
-                        }
+                        addItem(vm.db[i].name, response.data);
+                        //addTrendingItem(vm.db[i].name, response.data);
                     }, function (error) {
                         $log.error(error);
                     });
             }
         }
 
-        function addTrendingItem(data) {
+        function addItem(itemName, data) {
+            var item = {
+                name: itemName,
+                buyPrice: data.buying,
+                sellPrice: data.selling,
+                revenue: data.selling - data.buying,
+                demandQuantity: data.buyingQuantity - data.sellingQuantity,
+                demandPercentage: ((data.buyingQuantity / data.sellingQuantity) - 1) * 100
+            }
+
+            vm.marketDB.push(item);
+        }
+
+        function addTrendingItem(itemName, data) {
             if (vm.trendingItems.length < vm.trendingItemsSize) {
-                if (parseFloat(vm.trendingItems[0].day30.change) < parseFloat(data.day30.change)) {
+                if (vm.trendingItems[0]) {
                     vm.trendingItems.unshift(data);
                 } else if (parseFloat(vm.trendingItems[vm.trendingItems.length - 1].day30.change) > parseFloat(data.day30.change)) {
                     vm.trendingItems.push(data);
@@ -86,15 +89,25 @@
             }
         }
 
-        function getTrendingItems(membersFlag) {
+        function activate() {
             var loadPromise = loadDB().then(function (response) {
                 loadTrendingItems(membersFlag);
             });
+        }
+
+        function getTrendingItems() {
+            activate();
             return vm.trendingItems;
         }
 
+        function getAllItems() {
+            activate();
+            return vm.marketDB;
+        }
+
         return {
-            getTrendingItems: getTrendingItems
+            getTrendingItems: getTrendingItems,
+            getAllItems: getAllItems
         }
     }
 })();
