@@ -17,7 +17,7 @@
         activate();
 
         function activate() {
-            vm.allItems = FlipIt.getAllItems().then(setPage());
+            vm.allItems = FlipIt.getAllItems();
         }
 
         function setPage() {

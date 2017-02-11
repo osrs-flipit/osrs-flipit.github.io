@@ -1,12 +1,12 @@
 <div ng-controller="HomeController as home" class="table-responsive">
-    <table class="table">
+    <table class="table table-bordered">
         <th>Item Name</th>
         <th>Buying Price</th>
         <th>Selling Price</th>
         <th>Revenue</th>
         <th>Demand Quanity</th>
         <th>Demand Percentage</th>
-        <tr ng-repeat="item in home.pageItems">
+        <tr ng-repeat="item in home.allItems">
             <td>{{item.name}}</td>
             <td>{{item.buyPrice}}</td>
             <td>{{item.sellPrice}}</td>
