@@ -2,7 +2,7 @@
     <div class="form-group">
         <input ng-model="searchText" class="form-control" placeholder="Search">
     </div>
-    <div class="table-responsive">
+    <div class="table-responsive table-sizing">
         <table class="table table-bordered">
             <th>Id</th>
             <th>Item Name</th>
@@ -17,7 +17,7 @@
                 <td>{{item.buyPrice}} G</td>
                 <td>{{item.sellPrice}} G</td>
                 <td>{{item.revenue}} G</td>
-                <td>{{item.demandQuantity}}</td>
+                <td>{{item.demandQuantity}} Units</td>
                 <td>{{item.demandPercentage | number: 2}} %</td>
             </tr>
         </table>

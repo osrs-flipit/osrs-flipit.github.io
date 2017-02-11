@@ -1,4 +1,13 @@
-table {
-    width: 80%;
+.table-sizing {
+    width: 85%;
     margin: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.input-sizing {
+    width: 15%;
+    margin-left: 77.5%;
 }
