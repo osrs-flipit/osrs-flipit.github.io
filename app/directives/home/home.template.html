@@ -11,7 +11,7 @@
             <th>Revenue</th>
             <th>Demand Quanity</th>
             <th>Demand Percentage</th>
-            <tr ng-repeat="item in home.allItems| filter: searchText | orderBy: 'revenue'">
+            <tr ng-repeat="item in home.allItems| filter: searchText | orderBy: ['-revenue', '-demandQuantity']">
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.buyPrice}} G</td>
