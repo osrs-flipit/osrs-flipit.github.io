@@ -43,7 +43,7 @@
                 var itemID = vm.db[i].id;
                 $http.get(vm.osrsServiceEndpoint + itemID)
                     .then(function (response) {
-                        var startIndex = response.config.url.lastIndexOf('=');
+                        var startIndex = response.config.url.lastIndexOf('=') + 1;
                         var index = parseInt(response.config.url.substring(startIndex, response.config.url.length));
                         var itemName = vm.db[index] ? vm.db[index].name : '';
                         addItem(index, itemName, response.data);
