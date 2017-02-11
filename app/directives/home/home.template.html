@@ -9,10 +9,11 @@
             <th>Buying Price</th>
             <th>Selling Price</th>
             <th>Revenue</th>
+            <th>Ratio</th>
             <th>Surplus Demand</th>
             <th>Demand Percentage</th>
             <tr ng-repeat="item in home.allItems| filter: searchText | orderBy: ['-revenue', '-demandQuantity']" ng-hide="item.revenue == 'Insufficient data' || item.demandQuantity == 'Insufficient data'"
-                ng-class="highlight(item.ratio)">
+                ng-class="home.highlight(ratio)">
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.buyPrice}} G</td>
