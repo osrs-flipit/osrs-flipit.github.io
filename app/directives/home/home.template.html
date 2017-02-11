@@ -6,12 +6,12 @@
         <table class="table table-bordered">
             <th>Id</th>
             <th>Item Name</th>
-            <th>Buying Price <span ng-click="home.sort('buyPrice')" class="glyphicon glyphicon-menu-down" ng-show="home.reverse"><span ng-click="home.sort('buyPrice')" class="glyphicon glyphicon-menu-up" ng-hide="home.reverse"></span></th>
+            <th>Buying Price</th>
             <th>Selling Price</th>
             <th>Revenue</th>
             <th>Demand Quanity</th>
             <th>Demand Percentage</th>
-            <tr ng-repeat="item in home.allItems| filter: searchText | orderBy: home.sortColumn:home.reverse">
+            <tr ng-repeat="item in home.allItems| filter: searchText | orderBy: -revenue">
                 <td>{{item.id}}</td>
                 <td>{{item.name}}</td>
                 <td>{{item.buyPrice}} G</td>
