@@ -39,8 +39,8 @@
         }
 
         function loadTrendingItems() {
-            for (var i = 0; i < vm.dbSize; i++) {
-                var itemID = vm.db[i].id;
+            for (var property in vm.db) {
+                var itemID = property;
                 $http.get(vm.osrsServiceEndpoint + itemID)
                     .then(function (response) {
                         var startIndex = response.config.url.lastIndexOf('=') + 1;
