@@ -13,11 +13,12 @@
         vm.pageItems = [];
         vm.pageSize = 10;
         vm.currentPage = 1;
+        vm.setPage = setPage;
 
         activate();
 
         function activate() {
-            vm.allItems = FlipIt.getAllItems();
+            vm.allItems = FlipIt.getAllItems(vm.setPage);
         }
 
         function setPage() {
