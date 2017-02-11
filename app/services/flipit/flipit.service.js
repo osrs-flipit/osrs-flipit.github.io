@@ -63,9 +63,9 @@
                 name: itemName,
                 buyPrice: data.buying,
                 sellPrice: data.selling,
-                revenue: data.selling - data.buying,
-                demandQuantity: data.buyingQuantity - data.sellingQuantity,
-                demandPercentage: data.sellingQuantity == 0 ? 0 : ((data.buyingQuantity / data.sellingQuantity) - 1) * 100
+                revenue: (data.selling == 0 || data.buying == 0) ? "Insufficient data" : data.selling - data.buying,
+                demandQuantity: (data.buyingQuantity == 0 || data.sellingQuantity == 0) ? "Insufficient data" : data.buyingQuantity - data.sellingQuantity,
+                demandPercentage: (data.buyingQuantity == 0 || data.sellingQuantity == 0) ? 0 : ((data.buyingQuantity / data.sellingQuantity) - 1) * 100
             }
 
             vm.marketDB.push(item);
