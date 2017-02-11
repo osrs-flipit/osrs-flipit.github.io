@@ -14,7 +14,7 @@
         activate();
 
         function activate() {
-            vm.trendingItems = FlipIt.getAllItems();
+            vm.allItems = FlipIt.getAllItems();
         }
     }
 })();

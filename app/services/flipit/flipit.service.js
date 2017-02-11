@@ -60,7 +60,7 @@
                 sellPrice: data.selling,
                 revenue: data.selling - data.buying,
                 demandQuantity: data.buyingQuantity - data.sellingQuantity,
-                demandPercentage: ((data.buyingQuantity / data.sellingQuantity) - 1) * 100
+                demandPercentage: data.sellingQuantity == 0 ? 0 : ((data.buyingQuantity / data.sellingQuantity) - 1) * 100
             }
 
             vm.marketDB.push(item);
