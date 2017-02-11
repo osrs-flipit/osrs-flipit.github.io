@@ -14,12 +14,15 @@
 
 .excellent {
     background-color: #234d20;
+    color: white;
 }
 
 .great {
     background-color: #77ab59;
+    color: white;
 }
 
 .good {
     background-color: #f0f7da;
+    color: white;
 }

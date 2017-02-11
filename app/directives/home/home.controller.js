@@ -36,7 +36,7 @@
             } else if (ratio < 20) {
                 return "great";
             } else if (ratio < 50) {
-                return good;
+                return "good";
             }
         }
     }
