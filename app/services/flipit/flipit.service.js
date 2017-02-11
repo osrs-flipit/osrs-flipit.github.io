@@ -46,7 +46,7 @@
                         var regex = /(\d+)(?!.*\d)/;
                         var index = regex.exec(response.config.url)[0];
                         var itemName = vm.db[index] ? vm.db[index].name : '';
-                        addItem(itemName, response.data);
+                        addItem(index, itemName, response.data);
                         //addTrendingItem(vm.db[i].name, response.data);
                     }, function (error) {
                         $log.error(error);
@@ -54,8 +54,9 @@
             }
         }
 
-        function addItem(itemName, data) {
+        function addItem(id, itemName, data) {
             var item = {
+                id: id,
                 name: itemName,
                 buyPrice: data.buying,
                 sellPrice: data.selling,

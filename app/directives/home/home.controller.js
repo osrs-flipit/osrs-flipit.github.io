@@ -10,6 +10,8 @@
         var vm = this;
 
         vm.allItems = [];
+        vm.pageSize = 10;
+        vm.currentPage = 1;
 
         activate();
 
