@@ -30,13 +30,15 @@
             }
         }
 
-        function highlight(ratio) {
-            if (ratio < 10) {
-                return "excellent";
-            } else if (ratio < 20) {
-                return "great";
-            } else if (ratio < 50) {
-                return "good";
+        function highlight(ratio, revenue, demandQuantity) {
+            if (revenue > 0 && demandQuantity > 0) {
+                if (ratio < 10) {
+                    return "excellent";
+                } else if (ratio < 20) {
+                    return "great";
+                } else if (ratio < 50) {
+                    return "good";
+                }
             }
         }
     }
