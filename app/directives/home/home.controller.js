@@ -36,7 +36,6 @@
         function sort(sortColunm) {
             vm.sortColumn = sortColumn;
             vm.reverse = !vm.reverse;
-
         }
     }
 })();
