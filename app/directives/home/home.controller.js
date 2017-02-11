@@ -10,6 +10,7 @@
         var vm = this;
 
         vm.allItems = [];
+        vm.pageItems = [];
         vm.pageSize = 10;
         vm.currentPage = 1;
 
@@ -17,6 +18,14 @@
 
         function activate() {
             vm.allItems = FlipIt.getAllItems();
+        }
+
+        function setPage() {
+            var min = vm.currentPage * vm.pageSize,
+                max = (vm.currentPage + 1) * vm.pageSize;
+            if (vm.allItems.length > vm.pageSize) {
+                vm.pageItems = vm.allItems.slice(min, max);
+            }
         }
     }
 })();
