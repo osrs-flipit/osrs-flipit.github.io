@@ -22,8 +22,8 @@
         }
 
         function setPage() {
-            var min = vm.currentPage * vm.pageSize,
-                max = (vm.currentPage + 1) * vm.pageSize;
+            var max = vm.currentPage * vm.pageSize,
+                min = (vm.currentPage * vm.pageSize) - vm.pageSize;
             if (vm.allItems.length > vm.pageSize) {
                 vm.pageItems = vm.allItems.slice(min, max);
             }
